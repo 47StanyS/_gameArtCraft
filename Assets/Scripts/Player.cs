@@ -1,37 +1,61 @@
-using UnityEngine;
+ using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    private SpriteRenderer _spriteRenderer;
-    void Start()
-    {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    [SerializeField] private float _sprint;
+    [SerializeField] private float _speedCtrl;
+    [SerializeField] SpriteRenderer _spriteRenderer;
 
-    void FixedUpdate()
+    private Vector3 _position;
+
+    private void Update()
     {
-        if( Input.GetKey(KeyCode.D))
+
+    }
+    private void FixedUpdate()
+    {
+        _position = transform.position;
+
+        if (Input.GetKey(KeyCode.D))
         {
-            transform.position += transform.right * _speed;
+            _position.x += _speed;
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                _position.x += _sprint;
+            }
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                _position.x +=  _speedCtrl;
+            }
             _spriteRenderer.flipX = true;
         }
-        if (Input.GetKey(KeyCode.A)) 
-        {
-            transform .position -= transform.right * _speed;
-            _spriteRenderer.flipX = false;
+       if (Input.GetKey(KeyCode.A))
+       {
+           _position.x -= _speed;
+           if (Input.GetKey(KeyCode.LeftShift))
+           {
+               _position.x -= _sprint;
+           }
+           if (Input.GetKey(KeyCode.LeftControl))
+           {
+               _position.x -= _speedCtrl;
+           }
+           _spriteRenderer.flipX = false;
         }
-      // if (Input.GetKey(KeyCode.W))
-      // {
-      //     GetComponent<Rigidbody2D>().AddForce(transform.up * 1, ForceMode2D.Impulse);
-      // }
-      // if (Input.GetKeyDown(KeyCode.W))
-      // {
-      //     GetComponent<Rigidbody2D>().gravityScale *= -1;
-      // }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.J))
         {
-            GetComponent<SpriteRenderer>().color = Color.red;
+            _position.x += 0.8f;
+            _position.y += 0.6f;
         }
+
+
+        transform.position = _position;
     }
+
+  // private void OnCollisionEnter2D(Collision2D collision)
+  // {
+  //     SceneManager.LoadScene(0);
+  // }
 }
