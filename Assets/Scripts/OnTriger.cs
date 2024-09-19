@@ -7,6 +7,7 @@ public class OnTriger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Game Over, Try Again");
             SceneManager.LoadScene(0);
         }
 

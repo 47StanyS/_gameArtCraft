@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5382055357461317133}
   - component: {fileID: 7005468721779043154}
   m_Layer: 0
-  m_Name: characters_0
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2880700341874768844}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.62, y: 13.18, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 0.1
+  _sprint: 0
+  _speedCtrl: 0
+  _spriteRenderer: {fileID: 0}
 --- !u!50 &5382055357461317133
 Rigidbody2D:
   serializedVersion: 4
