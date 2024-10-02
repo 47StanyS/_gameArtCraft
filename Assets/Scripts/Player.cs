@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (_health < 0) 
+        if (_health <= 0) 
         {
             Destroy(gameObject);
             Debug.Log("Game Over, Try again");

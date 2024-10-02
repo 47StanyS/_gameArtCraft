@@ -4,7 +4,7 @@ public class Coins : MonoBehaviour
 {
     [SerializeField] GameObject _coins;
 
-    private void OnTrigerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
